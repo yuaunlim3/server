@@ -2,7 +2,6 @@ package server;
 
 import java.io.*;
 import java.net.*;
-import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -24,7 +23,7 @@ public class ServerMain {
                 System.out.printf("Waiting for connection on port %d\n", port);
                 Socket sock = server.accept();
                 System.out.println("Got a new connection");
-                ClientHandler handler = new ClientHandler(sock);
+                ClientHandler handler = new ClientHandler(sock,server);
                 thrPool.submit(handler);
             }
 
